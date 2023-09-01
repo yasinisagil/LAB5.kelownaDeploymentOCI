@@ -1,0 +1,21 @@
+version: 1.0 
+component: deployment 
+runAs: root
+env: 
+    variables:        
+timeoutInSeconds:  
+files:  
+  - source: /
+    destination: /tmp/site/                              
+steps:                              
+# This section is to define the scripts that each step runs on the instance after file copy.
+  - stepType: Command 
+    name: CopyFiles
+    command: cp -a /tmp/site/public/. /var/www/html/
+    runAs: root
+    timeoutInSeconds: 300
+  - stepType: Command 
+    name: CopyFiles
+    command: chmod -R u=rwx,go=rx /var/www/html
+    runAs: root
+    timeoutInSeconds: 300
