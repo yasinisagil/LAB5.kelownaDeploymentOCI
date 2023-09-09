@@ -25,6 +25,21 @@ steps:
     runAs: root
     timeoutInSeconds: 300
   - stepType: Command 
+    name: YumUPDATE
+    command: yum update
+    runAs: root
+    timeoutInSeconds: 300
+  - stepType: Command 
+    name: HTTPD_Install
+    command: yum install httpd -y
+    runAs: root
+    timeoutInSeconds: 300
+  - stepType: Command 
+    name: HTTPD_Start
+    command: service httpd start
+    runAs: root
+    timeoutInSeconds: 300
+  - stepType: Command 
     name: CopyFiles
     command: cp -a /tmp/site/public/. /var/www/html/
     runAs: root
