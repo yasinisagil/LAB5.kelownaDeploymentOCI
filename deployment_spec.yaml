@@ -24,7 +24,7 @@ steps:
 #    command: service httpd start
 #    runAs: root
 #    timeoutInSeconds: 300
-#  - stepType: Command 
+  - stepType: Command 
     name: CopyFiles
     command: cp -a /tmp/site/public/. /var/www/html/
     runAs: root
